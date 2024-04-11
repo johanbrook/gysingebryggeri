@@ -1,0 +1,7 @@
+:root {
+    --sans: system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+
+    --leading: 1.5;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{% if title %}{{ title }} / {{ meta.title }}{% else %}{{ meta.title }}{% endif %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if excerpt or description or subtitle or meta.description %}
+    <meta name="description" content="{{ excerpt or description or subtitle or meta.description }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+    <link rel="canonical" itemprop="url" href="{{ url | url(true) }}">
+  </head>
+
+  <body>
+  	  <a href="#main" class="visually-hidden skip-link">Gå till innehåll</a>
+
+     {% include "nav.njk" %}
+
+     {{ content | safe }}
+  </body>
+
+</html>

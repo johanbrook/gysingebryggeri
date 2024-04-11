@@ -1,0 +1,33 @@
+html {
+    /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font: normal 112.5% / var(--leading) var(--sans);
+
+    @media only screen and (max-width: 480px) {
+        font-size: 100%;
+    }
+}
+
+body {
+    padding: 0.25rlh;
+    font-feature-settings:
+		/* Contextual alternates */
+        "calt" 1,
+        "kern" 1,
+        "liga" 1;
+    font-variant-ligatures: contextual common-ligatures;
+    hanging-punctuation: first;
+}
+
+input,
+textarea {
+    hanging-punctuation: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--link-color);
+    box-shadow: 0 0 0 4px white;
+    border-radius: 0.25em;
+}

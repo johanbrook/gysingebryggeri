@@ -1,0 +1,20 @@
+{
+    "tasks": {
+        "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+        "build": "deno task lume",
+        "serve": "deno task lume -s",
+        "cms": "LUME_CMS_LOCAL=1 deno task lume cms"
+    },
+    "compilerOptions": {
+        "types": ["lume/types.ts"]
+    },
+    "imports": {
+        "lume/": "https://deno.land/x/lume@v2.1.3/"
+    },
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 120,
+        "singleQuote": true,
+        "indentWidth": 4
+    }
+}
