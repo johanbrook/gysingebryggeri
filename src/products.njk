@@ -1,0 +1,22 @@
+---
+title: Produkter
+url: /produkter/
+menu:
+    visible: true
+    order: 1
+---
+
+<ol role="list" class="ProductsList">
+{%- for beer in search.pages("type=beer", "date=desc") %}
+    <li>
+        <h2>{{ beer.title }}</h2>
+        <dl>
+            <dt>Alkoholhalt</dt>
+            <dd>{{ beer.alcohol }}%</dd>
+        </dl>
+        <div class="ProductsList__Content prose">
+            {{ beer.content | md | safe }}
+        </div>
+    </li>
+{%- endfor %}
+</ol>

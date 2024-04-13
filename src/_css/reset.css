@@ -25,11 +25,10 @@
     }
 }
 
-:where(body) {
+:where(html, body) {
     line-height: 1.5;
     font-family: system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
 }
 
 :where(h1, h2, h3, h4, button, input, label) {
@@ -67,13 +66,10 @@
     list-style-type: disc;
 }
 
-:where(nav ul) {
-    padding-left: 0;
-    margin-left: 0;
-}
-
 :where(nav ul, ul[role="list"], ol[role="list"]) {
     list-style: none;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 :where(img, svg, video, canvas, audio, iframe, embed, object) {

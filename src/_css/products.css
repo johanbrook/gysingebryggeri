@@ -1,0 +1,35 @@
+.ProductsList {
+    li:not(:last-child) {
+        margin-bottom: 3rlh;
+    }
+
+    dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rlh;
+        align-items: baseline;
+        margin-block: 0.5rlh 1rlh;
+    }
+
+    dt {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        font-size: var(--f8);
+    }
+
+    dd {
+        margin-left: 0;
+    }
+
+    li {
+
+    }
+
+    @media screen and (min-width: 799px) {
+        .ProductsList__Content {
+            column-count: 2;
+            font-size: var(--f7);
+        }
+    }
+}

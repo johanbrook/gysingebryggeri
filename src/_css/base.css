@@ -1,4 +1,4 @@
-html {
+body {
     /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
@@ -8,10 +8,7 @@ html {
     @media only screen and (max-width: 480px) {
         font-size: 100%;
     }
-}
 
-body {
-    padding: 0.25rlh;
     font-feature-settings:
 		/* Contextual alternates */
         "calt" 1,
@@ -19,6 +16,7 @@ body {
         "liga" 1;
     font-variant-ligatures: contextual common-ligatures;
     hanging-punctuation: first;
+    color: var(--color-text);
 }
 
 input,
@@ -27,7 +25,47 @@ textarea {
 }
 
 :focus-visible {
-    outline: 2px solid var(--link-color);
+    outline: 2px solid var(--link-color, black);
+    outline-offset: 0.2em;
     box-shadow: 0 0 0 4px white;
     border-radius: 0.25em;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--display);
+}
+
+:where(h1, h2, h3, h4) {
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--color-hi-contrast);
+}
+
+h1 {
+    font-size: var(--f1);
+}
+
+h2 {
+    font-size: var(--f2);
+}
+
+h3 {
+    font-size: var(--f3);
+}
+
+h4 {
+    font-size: var(--f4);
+}
+
+h5 {
+    font-size: var(--f5);
+}
+
+h6 {
+    font-size: var(--f6);
+}
+
+strong {
+    font-weight: 650;
 }

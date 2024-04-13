@@ -1,0 +1,10 @@
+---
+layout: layouts/main.njk
+klass: home
+---
+
+<h1 class="title">{{ heading | md(true) | safe }}</h1>
+
+<div class="prose">
+    {{ content | md | safe }}
+</div>

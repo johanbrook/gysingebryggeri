@@ -1,11 +1,13 @@
 import lumeCMS, { GitHub } from "lume/cms.ts";
 import { Octokit } from "npm:octokit";
 
-const useLocalFs = Deno.env.get("LUME_CMS_LOCAL");
+const githubToken = Deno.env.get("LUME_CMS_GITHUB_TOKEN");
+
+const storageOf = (path: string) => `${!githubToken ? "src:" : "gh:src/"}${path}`;
 
 const cms = lumeCMS({
     site: {
-        name: "Gysinge Brygger",
+        name: "Gysinge Bryggeri",
         url: "https://gysingebryggeri.se",
     },
     auth: {
@@ -15,27 +17,61 @@ const cms = lumeCMS({
         },
     },
 })
-    // DOCUMENTS
-    .document("landing: Redigera förstasidan", "src:index.md", [
-        //
-        "title: text",
-        "content: markdown",
-    ]);
+    // COLLECTIONS
 
-if (useLocalFs) {
-    cms.storage("files", "public");
-    cms.upload("uploads", "files:uploads");
-} else {
+    .collection("Öl: Visas på sidan 'Produkter'", storageOf("beers/*.md"), [
+        //
+        "title: text!",
+        "content: markdown!",
+        {
+            name: "alcohol",
+            type: "number",
+            description: "Fyll i decimalnummer utan procenttecken. Använd punkt istället för komma.",
+            attributes: {
+                required: true,
+                step: 0.1,
+                min: 0,
+            },
+        },
+    ])
+
+    // DOCUMENTS
+    .document("Hem", storageOf("index.md"), [
+        //
+        "heading: text!",
+        "content: markdown!",
+    ])
+    .document("Om", storageOf("about.md"), [
+        //
+        "title: text!",
+        "content: markdown!",
+    ])
+    .document("Produkter", storageOf("products.md"), [
+        //
+        "title: text!",
+        "content: markdown",
+    ])
+    .document("Ölprovning", storageOf("beer-tasting.md"), [
+        //
+        "title: text!",
+        "content: markdown!",
+    ])
+    .document("Kontakt", storageOf("contact.md"), [
+        //
+        "title: text!",
+        "content: markdown!",
+    ])
+    .upload("uploads", storageOf("public/uploads"));
+
+if (githubToken) {
     cms.storage(
         "gh",
         new GitHub({
-            client: new Octokit({ auth: Deno.env.get("LUME_CMS_GITHUB_TOKEN") }),
+            client: new Octokit({ auth: githubToken }),
             owner: "oscarotero",
             repo: "test",
         }),
     );
-
-    cms.upload("uploads", "gh:src/public");
 }
 
 export default cms;

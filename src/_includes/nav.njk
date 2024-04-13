@@ -1,7 +1,13 @@
-<nav>
+<nav class="NavMain">
+    <a href="/">
+        <span class="visually-hidden">Hem</span>
+        <img src="/logo.png" alt="Gysinge Bryggeri logotyp" width="150" height="100" />
+    </a>
     <ul>
-        <li>
-            <a href="/">Hem</a>
-        </li>
+        {%- for page in search.pages("menu.visible=true", "menu.order=asc") %}
+            <li {{ 'aria-current=page' if page.url == url }}>
+                <a href="{{ page.url }}">{{ page.menu.title or page.title }}</a>
+            </li>
+        {%- endfor %}
     </ul>
 </nav>

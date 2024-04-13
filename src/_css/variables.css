@@ -2,6 +2,32 @@
     --sans: system-ui, sans-serif;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --display: Playfair Display, var(--serif);
 
     --leading: 1.5;
+
+    @utopia typeScale({
+        minWidth: 320,
+        maxWidth: 653,
+        minFontSize: 16,
+        maxFontSize: 32,
+        minTypeScale: 1.125,
+        maxTypeScale: 1.2,
+        positiveSteps: 3,
+        negativeSteps: 4,
+        prefix: "step",
+    });
+
+    --f1: var(--step-3);
+    --f2: var(--step-2);
+    --f3: var(--step-1);
+    --f4: var(--step-0);
+    --f5: var(--step--1);
+    --f6: var(--step--2);
+    --f7: var(--step--3);
+    --f8: var(--step--4);
+
+    --color-text: #222;
+    --color-hi-contrast: black;
+    --color-highlight: hsl(50 100% 74%);
 }
