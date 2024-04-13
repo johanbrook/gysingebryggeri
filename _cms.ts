@@ -4,8 +4,6 @@ import { Octokit } from "npm:octokit";
 const githubToken = Deno.env.get("LUME_CMS_GITHUB_TOKEN");
 const adminPw = Deno.env.get("LUME_CMS_ADMIN_PASS");
 
-console.log(`Has GH token: ${!!githubToken}`);
-
 const storageOf = (path: string) => `${!githubToken ? "src:" : "gh:src/"}${path}`;
 
 const cms = lumeCMS({

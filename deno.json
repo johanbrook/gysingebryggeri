@@ -19,8 +19,8 @@
         "indentWidth": 4
     },
     "deploy": {
-        "project": "de2a0b87-9d37-44d0-af4a-785789cba991",
-        "exclude": ["build", "src/public", "**/node_modules", ".github"],
+        "project": "a402a3c8-1bc5-4cee-aaf7-c9fd2d4e506e",
+        "exclude": ["build", "src/public", "**/node_modules", ".github", "**/node_modules"],
         "include": [],
         "entrypoint": "app.ts"
     }
