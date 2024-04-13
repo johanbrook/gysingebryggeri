@@ -1,0 +1,63 @@
+name: Build and deploy
+
+on:
+    push:
+        paths:
+            - "src/**/*"
+            - "_config.ts"
+            - "CNAME"
+            - ".github/workflows/deploy.yml"
+
+env:
+    DENO_VERSION: v1.41.0
+    BUILD_ARTIFACT: gb-build
+    BUILD_FOLDER: build
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Deno
+              uses: denoland/setup-deno@v1
+              with:
+                  deno-version: ${{ env.DENO_VERSION }}
+
+            - name: Build site
+              run: deno task build
+              env:
+                NODE_ENV: production
+                ENV: production
+
+            - name: Upload build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ env.BUILD_ARTIFACT }}
+                  path: ${{ env.BUILD_FOLDER }}
+                  retention-days: 1
+
+    deploy:
+        name: Deploy
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Download build
+              uses: actions/download-artifact@v4
+              with:
+                  name: ${{ env.BUILD_ARTIFACT }}
+                  path: ${{ env.BUILD_FOLDER }}
+
+            - name: Deploy to GitHub Pages
+              if: github.ref_name == 'main'
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  # The branch the action should deploy to.
+                  branch: gh-pages
+                  # The folder the action should deploy.
+                  folder: ${{ env.BUILD_FOLDER }}

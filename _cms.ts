@@ -2,6 +2,7 @@ import lumeCMS, { GitHub } from "lume/cms.ts";
 import { Octokit } from "npm:octokit";
 
 const githubToken = Deno.env.get("LUME_CMS_GITHUB_TOKEN");
+const adminPw = Deno.env.get("LUME_CMS_ADMIN_PASS");
 
 const storageOf = (path: string) => `${!githubToken ? "src:" : "gh:src/"}${path}`;
 
@@ -13,7 +14,7 @@ const cms = lumeCMS({
     auth: {
         method: "basic",
         users: {
-            johan: "pass",
+            ...(adminPw ? { admin: adminPw } : {}),
         },
     },
 })
@@ -68,8 +69,8 @@ if (githubToken) {
         "gh",
         new GitHub({
             client: new Octokit({ auth: githubToken }),
-            owner: "oscarotero",
-            repo: "test",
+            owner: "johanbrook",
+            repo: "gysingebryggeri",
         }),
     );
 }
