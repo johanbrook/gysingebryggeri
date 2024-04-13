@@ -3,7 +3,8 @@
         "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
         "build": "deno task lume",
         "serve": "deno task lume -s",
-        "cms": "LUME_CMS_LOCAL=1 deno task lume cms"
+        "cms": "LUME_CMS_LOCAL=1 deno task lume cms",
+        "deploy": "deployctl deploy --env-file=.env.prod"
     },
     "compilerOptions": {
         "types": ["lume/types.ts"]
@@ -16,5 +17,11 @@
         "lineWidth": 120,
         "singleQuote": true,
         "indentWidth": 4
+    },
+    "deploy": {
+        "project": "de2a0b87-9d37-44d0-af4a-785789cba991",
+        "exclude": ["build", "src/public", "**/node_modules", ".github"],
+        "include": [],
+        "entrypoint": "app.ts"
     }
 }

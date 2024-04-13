@@ -17,24 +17,36 @@ const cms = lumeCMS({
             ...(adminPw ? { admin: adminPw } : {}),
         },
     },
-})
-    // COLLECTIONS
+});
 
-    .collection("Öl: Visas på sidan 'Produkter'", storageOf("beers/*.md"), [
-        //
-        "title: text!",
-        "content: markdown!",
-        {
-            name: "alcohol",
-            type: "number",
-            description: "Fyll i decimalnummer utan procenttecken. Använd punkt istället för komma.",
-            attributes: {
-                required: true,
-                step: 0.1,
-                min: 0,
-            },
+if (githubToken) {
+    cms.storage(
+        "gh",
+        new GitHub({
+            client: new Octokit({ auth: githubToken }),
+            owner: "johanbrook",
+            repo: "gysingebryggeri",
+        }),
+    );
+}
+
+// COLLECTIONS
+
+cms.collection("Öl: Visas på sidan 'Produkter'", storageOf("beers/*.md"), [
+    //
+    "title: text!",
+    "content: markdown!",
+    {
+        name: "alcohol",
+        type: "number",
+        description: "Fyll i decimalnummer utan procenttecken. Använd punkt istället för komma.",
+        attributes: {
+            required: true,
+            step: 0.1,
+            min: 0,
         },
-    ])
+    },
+])
 
     // DOCUMENTS
     .document("Hem", storageOf("index.md"), [
@@ -63,16 +75,5 @@ const cms = lumeCMS({
         "content: markdown!",
     ])
     .upload("uploads", storageOf("public/uploads"));
-
-if (githubToken) {
-    cms.storage(
-        "gh",
-        new GitHub({
-            client: new Octokit({ auth: githubToken }),
-            owner: "johanbrook",
-            repo: "gysingebryggeri",
-        }),
-    );
-}
 
 export default cms;
