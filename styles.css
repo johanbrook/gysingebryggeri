@@ -1,0 +1,407 @@
+@layer setup;
+
+@layer setup{
+
+/*  From:
+    https://github.com/mayank99/reset.css/blob/main/package/index.css
+    https://piccalil.li/blog/a-more-modern-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:where([hidden]:not([hidden="until-found"])) {
+    display: none !important;
+}
+
+:where(html) {
+    -webkit-text-size-adjust: none;
+    color-scheme: dark light;
+    -moz-tab-size: 2;
+      -o-tab-size: 2;
+         tab-size: 2;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :where(html:focus-within) {
+        scroll-behavior: smooth;
+    }
+}
+
+:where(html, body) {
+    line-height: 1.5;
+    font-family: system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:where(h1, h2, h3, h4, button, input, label) {
+    line-height: 1.1;
+}
+
+:where(input, button, textarea, select) {
+    font: inherit;
+    color: inherit;
+}
+
+:where(textarea) {
+    resize: vertical;
+    resize: block;
+}
+
+:where(button, label, select, summary, [role="button"], [role="option"]) {
+    cursor: pointer;
+}
+
+:where(:disabled) {
+    cursor: not-allowed;
+}
+
+:where(label:has(> input:disabled), label:has(+ input:disabled)) {
+    cursor: not-allowed;
+}
+
+:where(a) {
+    color: inherit;
+    text-underline-offset: 0.2ex;
+}
+
+:where(ul) {
+    list-style-type: disc;
+}
+
+:where(nav ul, ul[role="list"], ol[role="list"]) {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+    display: block;
+    vertical-align: middle;
+}
+
+:where(img, picture, svg, video) {
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: break-word;
+}
+
+:where(h1, h2, h3, h4) {
+    text-wrap: balance;
+}
+
+:where(hr) {
+    border: none;
+    border-block-start: 1px solid;
+    color: inherit;
+    block-size: 0;
+    overflow: visible;
+}
+
+:where(:focus-visible) {
+    outline: 3px solid CanvasText;
+    box-shadow: 0 0 0 5px Canvas;
+    outline-offset: 1px;
+}
+
+:where(:focus-visible, :target) {
+    scroll-margin-block: 8vh;
+}
+
+:where(.visually-hidden:not(:focus-within, :active)) {
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+:where(progress) {
+    vertical-align: baseline;
+}
+
+:where(legend) {
+    padding: 0;
+}
+
+::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+:-moz-focusring {
+    outline: auto;
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+:where(button, select) {
+    text-transform: none;
+}
+
+:where(table) {
+    border-collapse: collapse;
+}
+
+:where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+:where(textarea:not([rows])) {
+    min-height: 10em;
+}
+}
+
+:root {
+    --sans: system-ui, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --display: Playfair Display, var(--serif);
+
+    --leading: 1.5;--step-3: clamp(1.4238rem, -0.529rem + 9.7642vi, 3.456rem);--step-2: clamp(1.2656rem, -0.2857rem + 7.7568vi, 2.88rem);--step-1: clamp(1.125rem, -0.1002rem + 6.1261vi, 2.4rem);--step-0: clamp(1rem, 0.039rem + 4.8048vi, 2rem);--step--1: clamp(0.8889rem, 0.1415rem + 3.7371vi, 1.6667rem);--step--2: clamp(0.7901rem, 0.2147rem + 2.877vi, 1.3889rem);--step--3: clamp(0.7023rem, 0.265rem + 2.1865vi, 1.1574rem);--step--4: clamp(0.6243rem, 0.2974rem + 1.6346vi, 0.9645rem);
+
+    --f1: var(--step-3);
+    --f2: var(--step-2);
+    --f3: var(--step-1);
+    --f4: var(--step-0);
+    --f5: var(--step--1);
+    --f6: var(--step--2);
+    --f7: var(--step--3);
+    --f8: var(--step--4);
+
+    --color-text: #222;
+    --color-hi-contrast: black;
+    --color-highlight: hsl(50 100% 74%);
+}
+
+body {
+    /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font: normal 112.5% / var(--leading) var(--sans);
+
+    font-feature-settings:
+		/* Contextual alternates */
+        "calt" 1,
+        "kern" 1,
+        "liga" 1;
+    font-variant-ligatures: contextual common-ligatures;
+    hanging-punctuation: first;
+    color: var(--color-text);
+}
+
+@media only screen and (max-width: 480px) {
+
+body {
+        font-size: 100%;
+}
+    }
+
+input,
+textarea {
+    hanging-punctuation: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--link-color, black);
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0 4px white;
+    border-radius: 0.25em;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--display);
+}
+
+:where(h1, h2, h3, h4) {
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--color-hi-contrast);
+}
+
+h1 {
+    font-size: var(--f1);
+}
+
+h2 {
+    font-size: var(--f2);
+}
+
+h3 {
+    font-size: var(--f3);
+}
+
+h4 {
+    font-size: var(--f4);
+}
+
+h5 {
+    font-size: var(--f5);
+}
+
+h6 {
+    font-size: var(--f6);
+}
+
+strong {
+    font-weight: 650;
+}
+
+body {
+    max-width: 980px;
+    margin-inline: auto;
+    padding: 0.5rlh;
+    height: 100vh;
+}
+
+main > h1:first-of-type:not(.title) {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: var(--f6);
+    letter-spacing: 0;
+    margin-block-end: 2rlh;
+
+    text-decoration: underline;
+    text-underline-offset: 0.5rlh;
+    text-decoration-thickness: 2px;
+}
+
+.NavMain {
+    display: grid;
+    grid-template-rows: 2;
+    justify-content: flex-end;
+    margin-block-end: 2rlh;
+    gap: 0.5rlh;
+}
+
+.NavMain ul {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rlh;
+    }
+
+.NavMain a {
+        font-weight: 500;
+        color: var(--color-hi-contrast);
+    }
+
+.NavMain a:not(:hover) {
+            text-decoration: none;
+        }
+
+.NavMain a:has(img) {
+        display: block;
+        justify-self: flex-end;
+        max-width: 5rlh;
+    }
+
+.NavMain [aria-current="page"] a {
+            font-weight: 700;
+            color: var(--color-hi-contrast);
+            text-decoration: underline;
+            text-underline-offset: -0.4ex;
+            text-decoration-color: var(--color-highlight);
+            -webkit-text-decoration-skip-ink: none;
+                    text-decoration-skip-ink: none;
+            text-decoration-thickness: 0.6ex;
+        }
+
+.home .title {
+        text-align: center;
+        font-size: 60px;
+        line-height: 1.4;
+        margin-block-end: 3rlh;
+    }
+
+.home .title em {
+            font-style: italic;
+            font-family: var(--sans);
+            font-size: var(--f4);
+            display: block;
+            font-weight: 260;
+            letter-spacing: 0;
+        }
+
+.home .prose {
+        max-width: 55ch;
+        margin-inline: auto;
+    }
+
+.home .prose::first-line {
+            font-weight: 650;
+        }
+
+.ProductsList li:not(:last-child) {
+        margin-bottom: 3rlh;
+    }
+
+.ProductsList dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rlh;
+        align-items: baseline;
+        margin-block: 0.5rlh 1rlh;
+    }
+
+.ProductsList dt {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        font-size: var(--f8);
+    }
+
+.ProductsList dd {
+        margin-left: 0;
+    }
+
+.ProductsList li {
+
+    }
+
+@media screen and (min-width: 799px) {
+        .ProductsList .ProductsList__Content {
+            -moz-column-count: 2;
+                 column-count: 2;
+            font-size: var(--f7);
+        }
+    }
+
+.skip-link {
+    position: fixed;
+    top: 1rlh;
+    left: 1rlh;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.deco {
+    text-decoration: underline;
+    text-underline-offset: -0.3ex;
+    text-decoration-color: hsl(50 100% 74%);
+    -webkit-text-decoration-skip-ink: none;
+            text-decoration-skip-ink: none;
+    text-decoration-thickness: 0.5ex;
+    color: var(--color-hi-contrast);
+}
+
+.prose :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
+        margin-block-end: 0.5rlh;
+    }
