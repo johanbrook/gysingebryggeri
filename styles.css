@@ -521,6 +521,10 @@ a:has(.Icon):active {
         padding: 0.75rlh;
     }
 
+.ProductsList li h2 {
+            color: inherit;
+        }
+
 :is(.ProductsList li) h2 ~ p {
             margin-block: 0.5rlh 1rlh;
             font-weight: 350;
