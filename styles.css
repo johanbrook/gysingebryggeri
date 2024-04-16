@@ -174,9 +174,9 @@ Remove the inheritance of text transform in Edge and Firefox.
     --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
     --display: Playfair Display, var(--serif);
 
-    --leading: 1.5;--step-3: clamp(1.4238rem, 0.8783rem + 2.7277vi, 3.456rem);--step-2: clamp(1.2656rem, 0.8322rem + 2.1669vi, 2.88rem);--step-1: clamp(1.125rem, 0.7827rem + 1.7114vi, 2.4rem);--step-0: clamp(1rem, 0.7315rem + 1.3423vi, 2rem);--step--1: clamp(0.8889rem, 0.6801rem + 1.044vi, 1.6667rem);--step--2: clamp(0.7901rem, 0.6294rem + 0.8037vi, 1.3889rem);--step--3: clamp(0.7023rem, 0.5802rem + 0.6108vi, 1.1574rem);--step--4: clamp(0.6243rem, 0.533rem + 0.4567vi, 0.9645rem);--fluid-40-60: clamp(2.5rem, 2.1644rem + 1.6779vi, 3.75rem);--fluid-20-28: clamp(1.25rem, 1.1158rem + 0.6711vi, 1.75rem);
+    --leading: 1.52;
 
-    --f0: var(--fluid-40-60);
+    --f0: var(--fluid-40-90);
     --f1: var(--step-3);
     --f2: var(--step-2);
     --f3: var(--step-1);
@@ -191,15 +191,23 @@ Remove the inheritance of text transform in Edge and Firefox.
     --color-lo-contrast: color-mix(in srgb, CanvasText, transparent 30%);
     --color-highlight: hsl(50 100% 74%);
 
-    --color-green: oklch(75% 0.187 129.79);
+    --color-green: oklch(75% 0.187 129.79);--step-3: clamp(1.6018rem, 1.104rem + 2.4889vi, 3.456rem);--step-2: clamp(1.4238rem, 1.0329rem + 1.9546vi, 2.88rem);--step-1: clamp(1.2656rem, 0.9611rem + 1.5227vi, 2.4rem);--step-0: clamp(1.125rem, 0.8901rem + 1.1745vi, 2rem);--step--1: clamp(1rem, 0.821rem + 0.8949vi, 1.6667rem);--step--2: clamp(0.8889rem, 0.7547rem + 0.6711vi, 1.3889rem);--step--3: clamp(0.7901rem, 0.6915rem + 0.493vi, 1.1574rem);--step--4: clamp(0.7023rem, 0.6319rem + 0.3519vi, 0.9645rem);--fluid-40-90: clamp(2.5rem, 1.6611rem + 4.1946vi, 5.625rem);--fluid-20-32: clamp(1.25rem, 1.0487rem + 1.0067vi, 2rem);
 }
+
+@media only screen and (prefers-color-scheme: dark) {
+
+:root {
+        --color-highlight: color-mix(in srgb, hsl(50 100% 74%), transparent 50%);
+        --color-highlight: oklch(from hsl(50 100% 74%) l calc(c + 0.05) h / 50%);
+}
+    }
 
 :root {
     /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-
+    color-scheme: light dark;
     font: normal 106.25% / var(--leading) var(--sans);
 
     font-feature-settings:
@@ -240,11 +248,12 @@ textarea {
 
 :where(h1, h2, h3, h4, h5, h6) {
     font-family: var(--display);
+    color: var(--color-hi-contrast);
 }
 
 :where(h1, h2, h3, h4) {
     line-height: 1.1;
-    font-weight: 750;
+    font-weight: 850;
 }
 
 h1 {
@@ -271,6 +280,18 @@ h6 {
     font-size: var(--f6);
 }
 
+a {
+    position: relative;
+}
+
+a:hover {
+        color: color-mix(in srgb, var(--color-green), black 30%);
+    }
+
+a:active {
+        top: 1px;
+    }
+
 strong {
     font-weight: 650;
 }
@@ -295,8 +316,13 @@ address dd:not(:last-child) {
             margin-block-end: 1rlh;
         }
 
+hr {
+    border-block-start: 2px solid var(--color-lo-contrast);
+    margin-block: 1rlh;
+}
+
 body {
-    max-width: 760px;
+    max-width: 960px;
     margin-inline: auto;
     padding: 0.5rlh;
     padding-bottom: 2rlh;
@@ -318,6 +344,16 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
         margin-block-end: 2rlh;
     }
 
+@media (min-width: 800px) {
+
+:is(.home, .page) main .prose {
+                -moz-column-count: 2;
+                     column-count: 2;
+                -moz-column-gap: 1rlh;
+                     column-gap: 1rlh;
+        }
+            }
+
 .NavMain {
     display: grid;
     grid-template-rows: 2;
@@ -335,12 +371,15 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
     }
 
 .NavMain a {
-        font-weight: 500;
-        color: var(--color-hi-contrast);
+        color: revert-layer;
     }
 
 .NavMain a:not(:hover) {
             text-decoration: none;
+        }
+
+.NavMain a:is(:hover, :focus-visible) {
+            color: var(--color-hi-contrast);
         }
 
 .NavMain a:has(img) {
@@ -360,33 +399,35 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
             text-decoration-thickness: 0.6ex;
         }
 
+@media only screen and (prefers-color-scheme: dark) {
+
+.NavMain [aria-current="page"] a {
+                text-underline-offset: -0.2ex;
+                text-decoration-thickness: 0.4ex;
+        }
+            }
+
 .home .title {
         text-align: center;
-        line-height: 1.4;
-        margin-block-end: 3rlh;
+        line-height: 1.3;
+        margin-block-end: 2rlh;
         font-weight: 800;
-        color: var(--color-hi-contrast);
     }
 
 .home .title em {
-            color: var(--color-lo-contrast);
             font-style: italic;
             font-family: var(--sans);
-            font-size: var(--fluid-20-28);
+            font-size: var(--fluid-20-32);
             display: block;
             font-weight: 300;
             letter-spacing: 0;
         }
 
 .home .prose {
-        max-width: 55ch;
-        margin-inline: auto;
         margin-block-end: 2rlh;
+        font-weight: 450;
+        text-wrap: pretty;
     }
-
-.home .prose::first-line {
-            font-weight: 650;
-        }
 
 .Icon {
     aspect-ratio: 1 / 1;
@@ -396,10 +437,54 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
 
 a:has(.Icon) {
     display: inline-block;
+    transition: transform 300ms ease;
+
+    /* Add a "spring" transition and increase transition duration for browsers who support it. */
 }
 
-a:has(.Icon):hover {
-        color: var(--color-green);
+@supports (transition-timing-function: linear(0, 1, 1)) {
+
+a:has(.Icon) {
+        transition-duration: 500ms;
+        transition-timing-function:
+            /* From https://linear-easing-generator.netlify.app */
+            linear(
+            0,
+            0.01,
+            0.042 1.6%,
+            0.172 3.4%,
+            0.856 9.5%,
+            1.092 12.1%,
+            1.237 14.5%,
+            1.279,
+            1.301 16.9%,
+            1.305,
+            1.302 18.6%,
+            1.275 20.3%,
+            0.986 29.3%,
+            0.933,
+            0.909 34.6%,
+            0.908,
+            0.916 38.1%,
+            1.004 47%,
+            1.02,
+            1.028 52.2%,
+            1.026 55.9%,
+            0.999 64.7%,
+            0.992 69.5%,
+            1.002 86.5%,
+            1
+        );
+}
+    }
+
+a:has(.Icon):is(:hover, :focus-visible) {
+        transform: scale(1.2);
+        color: revert-layer;
+    }
+
+a:has(.Icon):active {
+        opacity: 0.65;
     }
 
 .SocialLinks {
@@ -421,11 +506,26 @@ a:has(.Icon):hover {
     grid-template-columns: 1fr 1fr;
 }
 
+@media (max-width: 800px) {
+
+.ProductsList {
+        grid-template-columns: 1fr;
+        gap: 1rlh;
+}
+    }
+
 .ProductsList li {
         background-color: var(--product-bg-color);
+        background-color: oklch(from var(--product-bg-color) l calc(c + 0.03) h);
         color: var(--product-fg-color);
-        padding: 1rlh;
+        padding: 0.75rlh;
     }
+
+:is(.ProductsList li) h2 ~ p {
+            margin-block: 0.5rlh 1rlh;
+            font-weight: 350;
+            font-size: var(--f7);
+        }
 
 .ProductsList dl {
         display: grid;
@@ -444,6 +544,28 @@ a:has(.Icon):hover {
 
 .ProductsList dd {
         margin-left: 0;
+    }
+
+@media only screen and (prefers-color-scheme: dark) {
+
+.ProductsList {
+        gap: 1rlh;
+}
+
+        .ProductsList li {
+            background-color: transparent;
+            padding: 0;
+            color: revert-layer;
+        }
+
+            .ProductsList li .prose {
+                font-weight: 480;
+            }
+
+            .ProductsList li h2 {
+                color: color-mix(in hsl, var(--product-bg-color), white 10%);
+                color: oklch(from var(--product-bg-color) calc(l + 0.1) calc(c + 0.05) h);
+            }
     }
 
 .skip-link {
@@ -466,6 +588,6 @@ a:has(.Icon):hover {
     color: var(--color-hi-contrast);
 }
 
-.prose :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
-        margin-block-end: 0.5rlh;
+.prose :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd):not(:last-child) {
+        margin-block-end: var(--spacing, 1rlh);
     }
