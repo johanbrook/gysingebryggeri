@@ -4,12 +4,12 @@
     --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
     --display: Playfair Display, var(--serif);
 
-    --leading: 1.5;
+    --leading: 1.52;
 
     @utopia typeScale({
         minWidth: 320,
         maxWidth: 1512,
-        minFontSize: 16,
+        minFontSize: 18,
         maxFontSize: 32,
         minTypeScale: 1.125,
         maxTypeScale: 1.2,
@@ -22,13 +22,13 @@
         minWidth: 320,
         maxWidth: 1512,
         pairs: [
-          [40, 60],
-          [20, 28],
+          [40, 90],
+          [20, 32],
         ],
         prefix: "fluid",
     });
 
-    --f0: var(--fluid-40-60);
+    --f0: var(--fluid-40-90);
     --f1: var(--step-3);
     --f2: var(--step-2);
     --f3: var(--step-1);
@@ -44,4 +44,9 @@
     --color-highlight: hsl(50 100% 74%);
 
     --color-green: oklch(75% 0.187 129.79);
+
+    @media only screen and (prefers-color-scheme: dark) {
+        --color-highlight: color-mix(in srgb, hsl(50 100% 74%), transparent 50%);
+        --color-highlight: oklch(from hsl(50 100% 74%) l calc(c + 0.05) h / 50%);
+    }
 }

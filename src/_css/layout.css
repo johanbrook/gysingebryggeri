@@ -1,5 +1,5 @@
 body {
-    max-width: 760px;
+    max-width: 960px;
     margin-inline: auto;
     padding: 0.5rlh;
     padding-bottom: 2rlh;
@@ -18,5 +18,16 @@ main > h1:first-of-type:not(.title) {
         text-decoration-thickness: 2px;
         letter-spacing: -0.02em;
         margin-block-end: 2rlh;
+    }
+}
+
+:is(.home, .page) {
+    main {
+        .prose {
+            @media (min-width: 800px) {
+                column-count: 2;
+                column-gap: 1rlh;
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@ url: /om/
 layout: layouts/page.njk
 menu:
     visible: true
-    order: 2
+    order: 3
 ---
 
 One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.

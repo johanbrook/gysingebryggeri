@@ -3,17 +3,14 @@ title: Produkter
 url: /produkter/
 menu:
     visible: true
-    order: 1
+    order: 2
 ---
 
 <ol role="list" class="ProductsList">
 {%- for beer in search.pages("type=beer", "date=desc") %}
     <li style="--product-bg-color: {{ beer.color }}; --product-fg-color: {{ "var(--product-fg-light)" if beer.color_text == "light" else "var(--product-fg-dark)" }}">
-        <h2 id="{{ beer.title | lower | replace(" ", "-") }}">{{ beer.title }}</h2>
-        <dl>
-            <dt>Alkoholhalt</dt>
-            <dd>{{ beer.alcohol | replace(".", ",") }}%</dd>
-        </dl>
+        <h2 id="{{ beer.title | lower | replace(" ", "-") }}">{{ beer.title | replace("Gysinge", "Gysinge<br />") | safe }}</h2>
+        <p title="Alkoholprocent">{{ beer.alcohol | replace(".", ",") }}%</p>
         <div class="ProductsList__Content prose">
             {{ beer.content | md | safe }}
         </div>

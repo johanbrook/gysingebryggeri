@@ -3,7 +3,7 @@
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-
+    color-scheme: light dark;
     font: normal 106.25% / var(--leading) var(--sans);
 
     @media only screen and (max-width: 480px) {
@@ -38,11 +38,12 @@ textarea {
 
 :where(h1, h2, h3, h4, h5, h6) {
     font-family: var(--display);
+    color: var(--color-hi-contrast);
 }
 
 :where(h1, h2, h3, h4) {
     line-height: 1.1;
-    font-weight: 750;
+    font-weight: 850;
 }
 
 h1 {
@@ -69,6 +70,18 @@ h6 {
     font-size: var(--f6);
 }
 
+a {
+    position: relative;
+
+    &:hover {
+        color: color-mix(in srgb, var(--color-green), black 30%);
+    }
+
+    &:active {
+        top: 1px;
+    }
+}
+
 strong {
     font-weight: 650;
 }
@@ -89,4 +102,9 @@ address {
             margin-block-end: 1rlh;
         }
     }
+}
+
+hr {
+    border-block-start: 2px solid var(--color-lo-contrast);
+    margin-block: 1rlh;
 }

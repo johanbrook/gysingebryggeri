@@ -14,11 +14,14 @@
     }
 
     a {
-        font-weight: 500;
-        color: var(--color-hi-contrast);
+        color: revert-layer;
 
         &:not(:hover) {
             text-decoration: none;
+        }
+
+        &:is(:hover, :focus-visible) {
+            color: var(--color-hi-contrast);
         }
     }
 
@@ -37,6 +40,11 @@
             text-decoration-color: var(--color-highlight);
             text-decoration-skip-ink: none;
             text-decoration-thickness: 0.6ex;
+
+            @media only screen and (prefers-color-scheme: dark) {
+                text-underline-offset: -0.2ex;
+                text-decoration-thickness: 0.4ex;
+            }
         }
     }
 }

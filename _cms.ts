@@ -108,6 +108,7 @@ cms.collection("Öl: Visas på sidan 'Produkter'", storageOf("beers/*.md"), [
         //
         "title: text!",
         "content: markdown!",
+        "map_url: url",
     ])
     .upload("uploads", storageOf("public/uploads"));
 
