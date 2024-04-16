@@ -24,14 +24,22 @@ a:has(.Icon) {
 }
 
 .ProductsList {
-    li:not(:last-child) {
-        margin-bottom: 3rlh;
+    --product-fg-light: color-mix(in srgb, white, transparent 5%);
+    --product-fg-dark: color-mix(in srgb, black, transparent 30%);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    li {
+        background-color: var(--product-bg-color);
+        color: var(--product-fg-color);
+        padding: 1rlh;
     }
 
     dl {
         display: grid;
         grid-template-columns: auto 1fr;
-        gap: 1rlh;
+        gap: 0.5rlh;
         align-items: baseline;
         margin-block: 0.5rlh 1rlh;
     }
@@ -39,7 +47,7 @@ a:has(.Icon) {
     dt {
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.02em;
         font-size: var(--f8);
     }
 

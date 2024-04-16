@@ -8,7 +8,7 @@ menu:
 
 <ol role="list" class="ProductsList">
 {%- for beer in search.pages("type=beer", "date=desc") %}
-    <li>
+    <li style="--product-bg-color: {{ beer.color }}; --product-fg-color: {{ "var(--product-fg-light)" if beer.color_text == "light" else "var(--product-fg-dark)" }}">
         <h2 id="{{ beer.title | lower | replace(" ", "-") }}">{{ beer.title }}</h2>
         <dl>
             <dt>Alkoholhalt</dt>
