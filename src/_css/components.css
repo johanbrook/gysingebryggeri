@@ -1,3 +1,28 @@
+.Icon {
+    aspect-ratio: 1 / 1;
+    width: 1em;
+    fill: currentColor;
+}
+
+a:has(.Icon) {
+    display: inline-block;
+
+    &:hover {
+        color: var(--color-green);
+    }
+}
+
+.SocialLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rlh;
+
+    .Icon {
+        font-size: 2rlh;
+    }
+}
+
 .ProductsList {
     li:not(:last-child) {
         margin-bottom: 3rlh;
@@ -20,16 +45,5 @@
 
     dd {
         margin-left: 0;
-    }
-
-    li {
-
-    }
-
-    @media screen and (min-width: 799px) {
-        .ProductsList__Content {
-            column-count: 2;
-            font-size: var(--f7);
-        }
     }
 }

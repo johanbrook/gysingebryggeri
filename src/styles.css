@@ -8,6 +8,7 @@
 @import "nav.css";
 
 @import "home.css";
-@import "products.css";
+
+@import "components.css";
 
 @import "utils.css";

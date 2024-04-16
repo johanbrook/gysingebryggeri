@@ -25,7 +25,7 @@
     }
 }
 
-:where(html, body) {
+:where(html) {
     line-height: 1.5;
     font-family: system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -154,4 +154,8 @@ Remove the inheritance of text transform in Edge and Firefox.
 
 :where(textarea:not([rows])) {
     min-height: 10em;
+}
+
+:where(address) {
+    font-style: normal;
 }

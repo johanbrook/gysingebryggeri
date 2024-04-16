@@ -1,16 +1,18 @@
 .home {
     .title {
         text-align: center;
-        font-size: 60px;
         line-height: 1.4;
         margin-block-end: 3rlh;
+        font-weight: 800;
+        color: var(--color-hi-contrast);
 
         em {
+            color: var(--color-lo-contrast);
             font-style: italic;
             font-family: var(--sans);
-            font-size: var(--f4);
+            font-size: var(--fluid-20-28);
             display: block;
-            font-weight: 260;
+            font-weight: 300;
             letter-spacing: 0;
         }
     }
@@ -18,6 +20,7 @@
     .prose {
         max-width: 55ch;
         margin-inline: auto;
+        margin-block-end: 2rlh;
 
         &::first-line {
             font-weight: 650;

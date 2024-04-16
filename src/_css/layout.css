@@ -1,18 +1,22 @@
 body {
-    max-width: 980px;
+    max-width: 760px;
     margin-inline: auto;
     padding: 0.5rlh;
-    height: 100vh;
+    padding-bottom: 2rlh;
+    min-height: 100vh;
 }
 
 main > h1:first-of-type:not(.title) {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: var(--f6);
-    letter-spacing: 0;
-    margin-block-end: 2rlh;
+    margin-block-end: 1rlh;
 
-    text-decoration: underline;
-    text-underline-offset: 0.5rlh;
-    text-decoration-thickness: 2px;
+    html:not(.page) & {
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: var(--f6);
+        text-decoration: underline;
+        text-underline-offset: 0.5rlh;
+        text-decoration-thickness: 2px;
+        letter-spacing: -0.02em;
+        margin-block-end: 2rlh;
+    }
 }

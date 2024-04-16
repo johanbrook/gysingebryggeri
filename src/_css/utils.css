@@ -5,7 +5,7 @@
 }
 
 .title {
-    font-size: 50px;
+    font-size: var(--f0);
 }
 
 .deco {

@@ -9,10 +9,10 @@ menu:
 <ol role="list" class="ProductsList">
 {%- for beer in search.pages("type=beer", "date=desc") %}
     <li>
-        <h2>{{ beer.title }}</h2>
+        <h2 id="{{ beer.title | lower | replace(" ", "-") }}">{{ beer.title }}</h2>
         <dl>
             <dt>Alkoholhalt</dt>
-            <dd>{{ beer.alcohol }}%</dd>
+            <dd>{{ beer.alcohol | replace(".", ",") }}%</dd>
         </dl>
         <div class="ProductsList__Content prose">
             {{ beer.content | md | safe }}
