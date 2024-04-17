@@ -191,7 +191,7 @@ Remove the inheritance of text transform in Edge and Firefox.
     --color-lo-contrast: color-mix(in srgb, CanvasText, transparent 30%);
     --color-highlight: hsl(50 100% 74%);
 
-    --color-green: oklch(75% 0.187 129.79);--step-3: clamp(1.6018rem, 1.104rem + 2.4889vi, 3.456rem);--step-2: clamp(1.4238rem, 1.0329rem + 1.9546vi, 2.88rem);--step-1: clamp(1.2656rem, 0.9611rem + 1.5227vi, 2.4rem);--step-0: clamp(1.125rem, 0.8901rem + 1.1745vi, 2rem);--step--1: clamp(1rem, 0.821rem + 0.8949vi, 1.6667rem);--step--2: clamp(0.8889rem, 0.7547rem + 0.6711vi, 1.3889rem);--step--3: clamp(0.7901rem, 0.6915rem + 0.493vi, 1.1574rem);--step--4: clamp(0.7023rem, 0.6319rem + 0.3519vi, 0.9645rem);--fluid-40-90: clamp(2.5rem, 1.6611rem + 4.1946vi, 5.625rem);--fluid-20-32: clamp(1.25rem, 1.0487rem + 1.0067vi, 2rem);
+    --color-green: oklch(75% 0.187 129.79);--step-3: clamp(2.1973rem, 1.8594rem + 1.6896vi, 3.456rem);--step-2: clamp(1.7578rem, 1.4566rem + 1.5063vi, 2.88rem);--step-1: clamp(1.4063rem, 1.1395rem + 1.3339vi, 2.4rem);--step-0: clamp(1.125rem, 0.8901rem + 1.1745vi, 2rem);--step--1: clamp(0.9rem, 0.6942rem + 1.0291vi, 1.6667rem);--step--2: clamp(0.72rem, 0.5404rem + 0.8978vi, 1.3889rem);--step--3: clamp(0.576rem, 0.4199rem + 0.7804vi, 1.1574rem);--step--4: clamp(0.4608rem, 0.3256rem + 0.6761vi, 0.9645rem);--fluid-40-90: clamp(2.5rem, 1.6611rem + 4.1946vi, 5.625rem);--fluid-20-32: clamp(1.25rem, 1.0487rem + 1.0067vi, 2rem);
 }
 
 @media only screen and (prefers-color-scheme: dark) {
@@ -354,41 +354,19 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
         }
             }
 
-.NavMain {
-    display: grid;
-    grid-template-rows: 2;
-    justify-content: flex-end;
-    margin-block-end: 2rlh;
-    gap: 0.5rlh;
-}
-
-.NavMain ul {
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rlh;
-    }
-
-.NavMain a {
+[role="navigation"] a {
         color: revert-layer;
     }
 
-.NavMain a:not(:hover) {
+[role="navigation"] a:not(:hover) {
             text-decoration: none;
         }
 
-.NavMain a:is(:hover, :focus-visible) {
+[role="navigation"] a:is(:hover, :focus-visible) {
             color: var(--color-hi-contrast);
         }
 
-.NavMain a:has(img) {
-        display: block;
-        justify-self: flex-end;
-        max-width: 5rlh;
-    }
-
-.NavMain [aria-current="page"] a {
+[role="navigation"] [aria-current="page"] a {
             font-weight: 700;
             color: var(--color-hi-contrast);
             text-decoration: underline;
@@ -401,11 +379,104 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
 
 @media only screen and (prefers-color-scheme: dark) {
 
-.NavMain [aria-current="page"] a {
+[role="navigation"] [aria-current="page"] a {
                 text-underline-offset: -0.2ex;
                 text-decoration-thickness: 0.4ex;
         }
             }
+
+.NavMain {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin-block-end: 2rlh;
+    gap: 1rlh;
+}
+
+.NavMain ul {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rlh;
+    }
+
+.NavMain a:has(img) {
+        display: block;
+        justify-self: center;
+    }
+
+.NavMain a:has(img) img {
+            width: 6rlh;
+        }
+
+@media only screen and (max-width: 800px) {
+
+.NavMain {
+        grid-template-rows: 100px;
+        grid-template-columns: 15vw 1fr;
+        align-items: center;
+}
+
+        .NavMain ul {
+            justify-content: flex-start;
+        }
+    }
+
+.NavMobile {
+    display: none;
+    margin-block-end: 2lh;
+}
+
+.NavMobile .MobileNav__Home {
+        font-weight: 500;
+    }
+
+.NavMobile details {
+        margin: 0;
+        text-align: right;
+    }
+
+.NavMobile details [role="list"] {
+            background-color: color-mix(in srgb, Canvas, black 20%);
+            position: absolute;
+            z-index: 10;
+            top: 3rlh;
+            right: 0.5rlh;
+            margin: 0;
+            margin-right: -0.25rlh;
+            padding: 0 0.25rlh 0.5rlh 2rlh;
+            border-radius: 8px;
+            box-shadow: rgb(0 0 0 / 20%) -3px 5px 20px;
+            overflow: hidden;
+            border-radius: 6px;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+
+.NavMobile summary {
+        color: var(--color-text-detail);
+        white-space: nowrap;
+    }
+
+.NavMobile summary:is(:hover, details[open] > *) {
+            color: var(--color-text);
+        }
+
+@media only screen and (max-width: 595px) {
+    .NavMain {
+        display: none;
+    }
+    .NavMobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .NavMobile a img {
+            width: 4rlh;
+        }
+}
 
 .home .title {
         text-align: center;
