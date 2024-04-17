@@ -1,7 +1,7 @@
 .NavMain {
     display: grid;
-    grid-template-rows: 2;
-    justify-content: flex-end;
+    grid-template-rows: auto auto;
+    justify-content: center;
     margin-block-end: 2rlh;
     gap: 0.5rlh;
 
@@ -27,8 +27,11 @@
 
     a:has(img) {
         display: block;
-        justify-self: flex-end;
-        max-width: 5rlh;
+        justify-self: center;
+
+        img {
+            width: 6rlh;
+        }
     }
 
     [aria-current="page"] {
