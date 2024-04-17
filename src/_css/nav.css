@@ -1,18 +1,4 @@
-.NavMain {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    margin-block-end: 2rlh;
-    gap: 0.5rlh;
-
-    ul {
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rlh;
-    }
-
+[role="navigation"] {
     a {
         color: revert-layer;
 
@@ -22,15 +8,6 @@
 
         &:is(:hover, :focus-visible) {
             color: var(--color-hi-contrast);
-        }
-    }
-
-    a:has(img) {
-        display: block;
-        justify-self: center;
-
-        img {
-            width: 6rlh;
         }
     }
 
@@ -48,6 +25,96 @@
                 text-underline-offset: -0.2ex;
                 text-decoration-thickness: 0.4ex;
             }
+        }
+    }
+}
+
+.NavMain {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin-block-end: 2rlh;
+    gap: 1rlh;
+
+    ul {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rlh;
+    }
+
+    a:has(img) {
+        display: block;
+        justify-self: center;
+
+        img {
+            width: 6rlh;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        grid-template-rows: 100px;
+        grid-template-columns: 15vw 1fr;
+        align-items: center;
+
+        ul {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.NavMobile {
+    display: none;
+    margin-block-end: 2lh;
+
+    .MobileNav__Home {
+        font-weight: 500;
+    }
+
+    details {
+        margin: 0;
+        text-align: right;
+
+        [role="list"] {
+            background-color: color-mix(in srgb, Canvas, black 20%);
+            position: absolute;
+            z-index: 10;
+            top: 3rlh;
+            right: 0.5rlh;
+            margin: 0;
+            margin-right: -0.25rlh;
+            padding: 0 0.25rlh 0.5rlh 2rlh;
+            border-radius: 8px;
+            box-shadow: rgb(0 0 0 / 20%) -3px 5px 20px;
+            overflow: hidden;
+            border-radius: 6px;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+    }
+
+    summary {
+        color: var(--color-text-detail);
+        white-space: nowrap;
+
+        &:is(:hover, details[open] > *) {
+            color: var(--color-text);
+        }
+    }
+}
+
+@media only screen and (max-width: 595px) {
+    .NavMain {
+        display: none;
+    }
+    .NavMobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a img {
+            width: 4rlh;
         }
     }
 }
