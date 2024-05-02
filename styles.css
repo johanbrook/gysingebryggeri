@@ -438,20 +438,30 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
     }
 
 .NavMobile details [role="list"] {
-            background-color: color-mix(in srgb, Canvas, black 20%);
+            background-color: black;
             position: absolute;
             z-index: 10;
             top: 3rlh;
             right: 0.5rlh;
             margin: 0;
             margin-right: -0.25rlh;
-            padding: 0 0.25rlh 0.5rlh 2rlh;
-            border-radius: 8px;
+            padding: 0.5rlh 1rlh;
+            border-radius: 10px;
             box-shadow: rgb(0 0 0 / 20%) -3px 5px 20px;
             overflow: hidden;
-            border-radius: 6px;
             font-size: 1.2em;
             line-height: 2;
+            display: grid;
+            text-align: center;
+            grid-template-columns: 1fr 1fr;
+        }
+
+.NavMobile details [role="list"] li:last-child {
+                grid-column: 1 / -1;
+            }
+
+.NavMobile details a {
+            color: white;
         }
 
 .NavMobile summary {
@@ -463,7 +473,7 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
             color: var(--color-text);
         }
 
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 900px) {
     .NavMain {
         display: none;
     }
