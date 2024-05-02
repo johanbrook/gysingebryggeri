@@ -22,3 +22,18 @@
         margin-block-end: var(--spacing, 1rlh);
     }
 }
+
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: .5rlh 1em;
+    text-align: center;
+    font-weight: 500;
+
+    &:hover {
+        color: color-mix(in srgb, white, transparent 30%);
+    }
+}

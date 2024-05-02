@@ -23,11 +23,12 @@ main > h1:first-of-type:not(.title) {
 
 :is(.home, .page) {
     main {
+        h1 {
+            text-align: center;
+        }
         .prose {
-            @media (min-width: 800px) {
-                column-count: 2;
-                column-gap: 1rlh;
-            }
+            max-width: 60ch;
+            margin-inline: auto;
         }
     }
 }

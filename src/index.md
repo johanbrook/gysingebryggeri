@@ -6,6 +6,8 @@ menu:
     title: Hem
     order: 1
 ---
-One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.
+Välkommen till Gysinge Bryggeri — en smakupplevelse djupt förankrad i svensk tradition och hantverk.
 
-The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human
+Beläget vid de natursköna omgivningarna i Gysinge, där den rena luften och det kristallklara vattnet ger inspiration åt våra dedikerade bryggare. Med väl beprövade metoder från förr, skapar vi på Gysinge Bryggeri en mängd olika ölsorter som bär på vår tro på det genuina och det lokala.
+
+Vare sig det är en klassisk lager eller en vågad IPA, strävar vi alltid efter att leverera en smakresa som förenar tradition med nytänkande. Utforska vår värld av karaktärsfulla smaker och låt Gysinge Bryggeri föra dig på en resa genom lokal svensk ölkultur.

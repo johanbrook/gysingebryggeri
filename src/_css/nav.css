@@ -41,7 +41,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rlh;
+        gap: 1.5rlh;
     }
 
     a:has(img) {

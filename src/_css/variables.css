@@ -5,6 +5,7 @@
     --display: Playfair Display, var(--serif);
 
     --leading: 1.52;
+    --spacing: 0.5rlh;
 
     @utopia typeScale({
         minWidth: 320,
