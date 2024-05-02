@@ -10,10 +10,6 @@ templateEngine: njk,md
 map_url: https://maps.app.goo.gl/QDxEhxQFFAyqDSP46
 ---
 
-Lol.
-
----
-
 <address>
     <dl>
         <dt>Email</dt>

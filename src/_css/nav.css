@@ -1,4 +1,10 @@
-[role="navigation"] {
+.NavMain {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin-block-end: 2rlh;
+    gap: 1rlh;
+
     a {
         color: revert-layer;
 
@@ -27,14 +33,6 @@
             }
         }
     }
-}
-
-.NavMain {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    margin-block-end: 2rlh;
-    gap: 1rlh;
 
     ul {
         margin: 0;
