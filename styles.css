@@ -175,6 +175,7 @@ Remove the inheritance of text transform in Edge and Firefox.
     --display: Playfair Display, var(--serif);
 
     --leading: 1.52;
+    --spacing: 0.5rlh;
 
     --f0: var(--fluid-40-90);
     --f1: var(--step-3);
@@ -344,29 +345,36 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
         margin-block-end: 2rlh;
     }
 
-@media (min-width: 800px) {
+:is(.home, .page) main h1 {
+            text-align: center;
+        }
 
 :is(.home, .page) main .prose {
-                -moz-column-count: 2;
-                     column-count: 2;
-                -moz-column-gap: 1rlh;
-                     column-gap: 1rlh;
+            max-width: 60ch;
+            margin-inline: auto;
         }
-            }
 
-[role="navigation"] a {
+.NavMain {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    margin-block-end: 2rlh;
+    gap: 1rlh;
+}
+
+.NavMain a {
         color: revert-layer;
     }
 
-[role="navigation"] a:not(:hover) {
+.NavMain a:not(:hover) {
             text-decoration: none;
         }
 
-[role="navigation"] a:is(:hover, :focus-visible) {
+.NavMain a:is(:hover, :focus-visible) {
             color: var(--color-hi-contrast);
         }
 
-[role="navigation"] [aria-current="page"] a {
+.NavMain [aria-current="page"] a {
             font-weight: 700;
             color: var(--color-hi-contrast);
             text-decoration: underline;
@@ -379,26 +387,18 @@ html:not(.page) :is(main > h1:first-of-type:not(.title)) {
 
 @media only screen and (prefers-color-scheme: dark) {
 
-[role="navigation"] [aria-current="page"] a {
+.NavMain [aria-current="page"] a {
                 text-underline-offset: -0.2ex;
                 text-decoration-thickness: 0.4ex;
         }
             }
-
-.NavMain {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    margin-block-end: 2rlh;
-    gap: 1rlh;
-}
 
 .NavMain ul {
         margin: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rlh;
+        gap: 1.5rlh;
     }
 
 .NavMain a:has(img) {
@@ -665,4 +665,19 @@ a:has(.Icon):active {
 
 .prose :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd):not(:last-child) {
         margin-block-end: var(--spacing, 1rlh);
+    }
+
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: .5rlh 1em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.btn:hover {
+        color: color-mix(in srgb, white, transparent 30%);
     }
