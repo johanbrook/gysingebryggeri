@@ -14,5 +14,5 @@ Våra ölprovningar är en resa genom svensk ölkultur där du får utforska och
 Boka din provning idag och låt oss ta dig med på en resa genom smakens rika panorama.
 
 <p style="text-align: center">
-    <a href="mailto:{{ meta.email }}?subject={{ meta.beer_tasting.subject }}" class="btn">Boka</a>
+    <a href="mailto:{{ meta.email }}?subject={{ meta.bookings.beer_tasting.subject }}" class="btn">Boka</a>
 </p>
