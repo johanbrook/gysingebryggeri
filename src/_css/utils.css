@@ -5,7 +5,10 @@
 }
 
 .title {
-    font-size: var(--f0);
+    font-family: var(--display);
+    font-weight: 850;
+    font-size: var(--ftitle);
+    text-decoration: none;
 }
 
 .deco {
@@ -18,8 +21,12 @@
 }
 
 .prose {
-    :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd):not(:last-child) {
-        margin-block-end: var(--spacing, 1rlh);
+    :where(h1, h2, h3, h4, h5, h6) {
+        --spacing: 1.5rlh;
+        margin-block-start: var(--spacing);
+        text-decoration: underline;
+        text-underline-offset: 0.5rlh;
+        text-decoration-thickness: 2px;
     }
 }
 
@@ -29,9 +36,9 @@
     background-color: black;
     color: white;
     text-decoration: none;
-    padding: .5rlh 1em;
+    padding: 0.5rlh 2em;
     text-align: center;
-    font-weight: 500;
+    font-weight: 580;
 
     &:hover {
         color: color-mix(in srgb, white, transparent 30%);

@@ -36,14 +36,15 @@ textarea {
     border-radius: 0.25em;
 }
 
-:where(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--display);
-    color: var(--color-hi-contrast);
+:where(h1, h2, h3, h4, p, figure, blockquote, dl, dd):not(:last-child) {
+    margin-block-end: var(--spacing, 1rlh);
 }
 
-:where(h1, h2, h3, h4) {
-    line-height: 1.1;
-    font-weight: 850;
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--sans);
+    color: var(--color-hi-contrast);
+    letter-spacing: -0.01em;
+    font-weight: 500;
 }
 
 h1 {
@@ -72,6 +73,7 @@ h6 {
 
 a {
     position: relative;
+    font-weight: 500;
 
     &:hover {
         color: color-mix(in srgb, var(--color-green), black 30%);

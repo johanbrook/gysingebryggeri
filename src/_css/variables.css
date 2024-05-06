@@ -5,13 +5,13 @@
     --display: Playfair Display, var(--serif);
 
     --leading: 1.52;
-    --spacing: 0.5rlh;
+    --spacing: 1rlh;
 
     @utopia typeScale({
         minWidth: 320,
         maxWidth: 1512,
         minFontSize: 18,
-        maxFontSize: 32,
+        maxFontSize: 22,
         minTypeScale: 1.25,
         maxTypeScale: 1.2,
         positiveSteps: 3,
@@ -25,11 +25,13 @@
         pairs: [
           [40, 90],
           [20, 32],
+          [24, 60],
         ],
         prefix: "fluid",
     });
 
     --f0: var(--fluid-40-90);
+    --ftitle: var(--fluid-24-60);
     --f1: var(--step-3);
     --f2: var(--step-2);
     --f3: var(--step-1);

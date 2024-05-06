@@ -6,26 +6,22 @@ body {
     min-height: 100vh;
 }
 
-main > h1:first-of-type:not(.title) {
-    margin-block-end: 1rlh;
+main > h1:first-of-type {
+    margin-block-end: var(--spacing, 1rlh);
+    text-align: center;
 
-    html:not(.page) & {
-        font-family: var(--sans);
-        font-weight: 500;
-        font-size: var(--f6);
+    &:not(.title) {
+        font-size: var(--f2);
+        font-weight: 580;
+        margin-block: calc(var(--spacing, 1rlh) * 3);
         text-decoration: underline;
         text-underline-offset: 0.5rlh;
         text-decoration-thickness: 2px;
-        letter-spacing: -0.02em;
-        margin-block-end: 2rlh;
     }
 }
 
 :is(.home, .page) {
     main {
-        h1 {
-            text-align: center;
-        }
         .prose {
             max-width: 60ch;
             margin-inline: auto;
