@@ -28,8 +28,8 @@
             text-decoration-thickness: 0.6ex;
 
             @media only screen and (prefers-color-scheme: dark) {
-                text-underline-offset: -0.2ex;
-                text-decoration-thickness: 0.4ex;
+                text-underline-offset: 0.5ex;
+                text-decoration-thickness: 0.2ex;
             }
         }
     }

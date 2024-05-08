@@ -16,7 +16,12 @@ main > h1:first-of-type {
         margin-block: calc(var(--spacing, 1rlh) * 3);
         text-decoration: underline;
         text-underline-offset: 0.5rlh;
-        text-decoration-thickness: 2px;
+        text-decoration-thickness: 4px;
+        text-decoration-color: var(--color-highlight);
+
+        @media screen and (prefers-color-scheme: dark) {
+            text-decoration-thickness: 2px;
+        }
     }
 }
 

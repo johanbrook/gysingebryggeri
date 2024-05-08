@@ -11,4 +11,4 @@ bookings:
     beer_tasting:
         subject: Bokning av ölprovning
     beer_brewing:
-        subject: Bokning av ölbryggning
+        subject: Bokning av medlemsbryggning

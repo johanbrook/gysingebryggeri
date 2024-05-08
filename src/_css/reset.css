@@ -99,9 +99,10 @@
 }
 
 :where(:focus-visible) {
-    outline: 3px solid CanvasText;
-    box-shadow: 0 0 0 5px Canvas;
-    outline-offset: 1px;
+    outline: 2px solid var(--link-color, black);
+    box-shadow: 0 0 0 3px white;
+    outline-offset: 4px;
+    border-radius: 0.25em;
 }
 
 :where(:focus-visible, :target) {

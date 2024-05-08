@@ -29,13 +29,6 @@ textarea {
     hanging-punctuation: none;
 }
 
-:focus-visible {
-    outline: 2px solid var(--link-color, black);
-    outline-offset: 0.2em;
-    box-shadow: 0 0 0 4px white;
-    border-radius: 0.25em;
-}
-
 :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd):not(:last-child) {
     margin-block-end: var(--spacing, 1rlh);
 }
@@ -76,7 +69,7 @@ a {
     font-weight: 500;
 
     &:hover {
-        color: color-mix(in srgb, var(--color-green), black 30%);
+        color: var(--color-blue);
     }
 
     &:active {
@@ -86,10 +79,6 @@ a {
 
 strong {
     font-weight: 650;
-}
-
-::selection {
-    background-color: var(--color-highlight);
 }
 
 address {

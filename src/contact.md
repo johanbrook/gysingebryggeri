@@ -21,7 +21,8 @@ map_url: https://maps.app.goo.gl/QDxEhxQFFAyqDSP46
         </dd>
 
         <dt>Sociala medier</dt>
-        <dd><a href="{{ meta.facebook }}">Facebook</a> · <a href="{{ meta.instagram }}">Instagram</a></dd>
+        <dd><a href="{{ meta.facebook }}">Facebook</a> · <a href="{{ meta.instagram }}">Instagram</a>
+         · <a href="{{ meta.facebook_club }}">Facebook för Bryggerisällskapet</a></dd>
     </dl>
 </address>
 
