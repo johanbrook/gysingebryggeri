@@ -43,4 +43,13 @@
     &:hover {
         color: color-mix(in srgb, white, transparent 30%);
     }
+
+    @media only screen and (prefers-color-scheme: dark) {
+        background-color: white;
+        color: black;
+
+        &:hover {
+            color: color-mix(in srgb, black, transparent 30%);
+        }
+    }
 }
