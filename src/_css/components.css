@@ -69,6 +69,7 @@ a:has(.Icon) {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: masonry;
 
     @media (max-width: 800px) {
         grid-template-columns: 1fr;
