@@ -9,7 +9,7 @@ import postcssUtopia from "npm:postcss-utopia@^1";
 const site = lume({
     src: "./src",
     dest: "./build",
-    location: new URL("https://johanbrook.github.io/gysingebryggeri"), // ignored in dev
+    location: new URL("https://gysingebryggeri.se"), // ignored in dev
 });
 
 site
