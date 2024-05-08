@@ -17,20 +17,23 @@
         }
     }
 
+    :is([aria-current="page"] a, a:hover) {
+        text-decoration: underline;
+        text-underline-offset: -0.4ex;
+        text-decoration-skip-ink: none;
+        text-decoration-thickness: 0.6ex;
+        text-decoration-color: var(--color-highlight);
+
+        @media only screen and (prefers-color-scheme: dark) {
+            text-underline-offset: 0.5ex;
+            text-decoration-thickness: 0.2ex;
+        }
+    }
+
     [aria-current="page"] {
         a {
             font-weight: 700;
             color: var(--color-hi-contrast);
-            text-decoration: underline;
-            text-underline-offset: -0.4ex;
-            text-decoration-color: var(--color-highlight);
-            text-decoration-skip-ink: none;
-            text-decoration-thickness: 0.6ex;
-
-            @media only screen and (prefers-color-scheme: dark) {
-                text-underline-offset: 0.5ex;
-                text-decoration-thickness: 0.2ex;
-            }
         }
     }
 
