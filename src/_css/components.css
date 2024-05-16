@@ -78,7 +78,6 @@ a:has(.Icon) {
 
     li {
         background-color: var(--product-bg-color);
-        background-color: oklch(from var(--product-bg-color) l calc(c + 0.03) h);
         color: var(--product-fg-color);
         padding: 0.75rlh;
 
