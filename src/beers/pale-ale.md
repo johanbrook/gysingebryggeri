@@ -4,4 +4,4 @@ alcohol: 5.6
 color: '#c7beb8'
 color_text: dark
 ---
-One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human
+Gysinge Pale Ale är en robust och mångfacetterad öl som balanserar en fyllig maltig smak med en uppfriskande beska. Med toner av knäckebröd och ljus sirap ger den en distinkt karaktär som kompletteras av inslag av torkade aprikoser, grapefrukt och örter. Denna öl är perfekt för att avnjutas som en avkopplande sällskapsdryck eller för att förhöja smakupplevelsen av rätter med fläsk- eller lammkött. Serverad vid 10-12°C avslöjar den sin fulla potential och ger en njutbar upplevelse för alla ölälskare.
